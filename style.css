@@ -1,0 +1,14 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+}
+
+a {
+  text-decoration: None;
+  text-align: center;
+  font-size: 30px;
+  color: 'white';
+}
