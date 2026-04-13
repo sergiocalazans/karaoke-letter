@@ -3,12 +3,20 @@
 // ==============================
 let botoes = [];
 let selecionado = 0;
-let estado = "INICIO"; // Estados: INICIO, JOGAR, SOBRE, CRÉDITOS [cite: 1, 2, 3, 4]
+let estado = "INICIO";
 
 let palavras = [];
 let textos = [
-  "HTML5", "CSS", "JAVASCRIPT", "ARRAY", "CLASS",
-  "OBJECT", "WEB", "DEVELOPMENT", "CANVAS", "GAMES",
+  "HTML5",
+  "CSS",
+  "JAVASCRIPT",
+  "ARRAY",
+  "CLASS",
+  "OBJECT",
+  "WEB",
+  "DEVELOPMENT",
+  "CANVAS",
+  "GAMES",
 ];
 
 let fontePixel;
@@ -17,7 +25,6 @@ let fontePixel;
 // PRELOAD E SETUP
 // ==============================
 function preload() {
-  // Certifique-se de que o caminho da fonte está correto no seu projeto
   fontePixel = loadFont("assets/fonts/PressStart2P-Regular.ttf");
 }
 
@@ -37,19 +44,18 @@ function setup() {
 function draw() {
   background(0);
 
-  // Máquina de Estados: Chama a função correspondente a cada tela
   switch (estado) {
     case "INICIO":
       telaInicial();
       break;
     case "JOGAR":
-      telaJogar(); // Definida em telaJogar.js [cite: 2]
+      telaJogar();
       break;
     case "SOBRE":
-      telaSobre(); // Definida em telaSobre.js [cite: 3, 5]
+      telaSobre();
       break;
     case "CRÉDITOS":
-      telaCreditos(); // Definida em telaCreditos.js [cite: 4, 7]
+      telaCreditos();
       break;
   }
 }
@@ -59,10 +65,32 @@ function draw() {
 // ==============================
 function criarMenu() {
   botoes = [];
-  // Configuração dos botões do menu inicial [cite: 2, 3, 4]
-  botoes.push(new Botao(width/2, 250, 200, 50, "JOGAR", color(0, 150, 255), color(0, 255, 255)));
-  botoes.push(new Botao(width/2, 320, 200, 50, "SOBRE", color(180), color(255)));
-  botoes.push(new Botao(width/2, 390, 200, 50, "CRÉDITOS", color(180, 0, 0), color(255, 0, 0)));
+
+  botoes.push(
+    new Botao(
+      width / 2,
+      250,
+      200,
+      50,
+      "JOGAR",
+      color(0, 150, 255),
+      color(0, 255, 255),
+    ),
+  );
+  botoes.push(
+    new Botao(width / 2, 320, 200, 50, "SOBRE", color(180), color(255)),
+  );
+  botoes.push(
+    new Botao(
+      width / 2,
+      390,
+      200,
+      50,
+      "CRÉDITOS",
+      color(180, 0, 0),
+      color(255, 0, 0),
+    ),
+  );
 }
 
 function criarBackground() {
@@ -93,20 +121,15 @@ function desenharMoldura() {
 // ==============================
 function keyPressed() {
   if (estado === "INICIO") {
-    // Navegação no Menu
     if (keyCode === DOWN_ARROW) {
       selecionado = (selecionado + 1) % botoes.length;
-    } 
-    else if (keyCode === UP_ARROW) {
+    } else if (keyCode === UP_ARROW) {
       selecionado--;
       if (selecionado < 0) selecionado = botoes.length - 1;
-    } 
-    else if (keyCode === ENTER) {
+    } else if (keyCode === ENTER) {
       mudarEstado(botoes[selecionado].texto);
     }
-  } 
-  else {
-    // Voltar para o menu principal 
+  } else {
     if (keyCode === ESCAPE) {
       mudarEstado("INICIO");
     }
@@ -115,7 +138,7 @@ function keyPressed() {
 
 function mudarEstado(novoEstado) {
   estado = novoEstado;
-  selecionado = 0; // Reseta a seleção ao trocar de tela
+  selecionado = 0;
 }
 
 // ==============================
