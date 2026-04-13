@@ -8,7 +8,7 @@ function telaSobre() {
 
   textSize(16);
   text(
-    "Guitar Letter é um jogo rítmico\n educativo para praticar digitação.",
+    "Guitar Letter é um jogo rítmico\n de músicas para praticar digitação.",
     width / 2,
     height / 2,
   );
