@@ -32,6 +32,12 @@ O projeto está organizado de forma modular para facilitar a manutenção:
 * **JSON**: Para armazenamento e gerenciamento dinâmico da playlist e níveis.
 * **Filtros de Imagem (Posterize)**: Utilizado para conferir um estilo visual 8-bits às capas das músicas em tempo real.
 
----
+## Desenvolvimento
 
 **Desenvolvido como projeto de Trabalho de Graduação da diciplina 'Web Development: HTML5 Canvas & Games' do 3° Período do curso de Bacharelado em Sistemas da Informação da Pontifícia Universidade Católica do Paraná (PUCPR).**
+
+## Integrantes
+
+- [Kamilly](https://github.com/PKamilly)
+- [Sérgio](https://github.com/sergiocalazans)
+- [Willian](https://github.com/willian14551)
