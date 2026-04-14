@@ -1,35 +1,18 @@
-// ==============================
-// VARIÁVEIS GLOBAIS
-// ==============================
 let botoes = [];
 let selecionado = 0;
 let estado = "INICIO";
-
-let palavras = [];
-let textos = [
-  "HTML5",
-  "CSS",
-  "JAVASCRIPT",
-  "ARRAY",
-  "CLASS",
-  "OBJECT",
-  "WEB",
-  "DEVELOPMENT",
-  "CANVAS",
-  "GAMES",
-];
-
 let fontePixel;
+let dadosMusicas;
+let palavrasBackground = [];
+let textosBg = ["HTML5", "CSS", "JAVASCRIPT", "ARRAY", "CLASS", "WEB", "GAMES"];
 
-// ==============================
-// PRELOAD E SETUP
-// ==============================
 function preload() {
   fontePixel = loadFont("assets/fonts/PressStart2P-Regular.ttf");
+  dadosMusicas = loadJSON("data/musicas.json");
 }
 
 function setup() {
-  createCanvas(800, 500);
+  createCanvas(windowWidth, windowHeight);
   textAlign(CENTER, CENTER);
   rectMode(CENTER);
   textFont(fontePixel);
@@ -38,9 +21,6 @@ function setup() {
   criarBackground();
 }
 
-// ==============================
-// LOOP PRINCIPAL
-// ==============================
 function draw() {
   background(0);
 
@@ -51,6 +31,9 @@ function draw() {
     case "JOGAR":
       telaJogar();
       break;
+    case "GAMEPLAY":
+      telaGameplay();
+      break;
     case "SOBRE":
       telaSobre();
       break;
@@ -60,12 +43,13 @@ function draw() {
   }
 }
 
-// ==============================
-// FUNÇÕES DE APOIO (BACKGROUND E MOLDURA)
-// ==============================
+function mudarEstado(novoEstado) {
+  estado = novoEstado;
+  selecionado = 0;
+}
+
 function criarMenu() {
   botoes = [];
-
   botoes.push(
     new Botao(
       width / 2,
@@ -93,20 +77,6 @@ function criarMenu() {
   );
 }
 
-function criarBackground() {
-  palavras = [];
-  for (let i = 0; i < 20; i++) {
-    palavras.push(new Palavra(random(textos)));
-  }
-}
-
-function desenharBackgroundAnimado() {
-  for (let p of palavras) {
-    p.atualizar();
-    p.mostrar();
-  }
-}
-
 function desenharMoldura() {
   stroke(200);
   strokeWeight(6);
@@ -116,29 +86,35 @@ function desenharMoldura() {
   drawingContext.setLineDash([]);
 }
 
-// ==============================
-// CONTROLES DE TECLADO
-// ==============================
-function keyPressed() {
-  if (estado === "INICIO") {
-    if (keyCode === DOWN_ARROW) {
-      selecionado = (selecionado + 1) % botoes.length;
-    } else if (keyCode === UP_ARROW) {
-      selecionado--;
-      if (selecionado < 0) selecionado = botoes.length - 1;
-    } else if (keyCode === ENTER) {
-      mudarEstado(botoes[selecionado].texto);
-    }
-  } else {
-    if (keyCode === ESCAPE) {
-      mudarEstado("INICIO");
-    }
+function criarBackground() {
+  for (let i = 0; i < 20; i++) {
+    palavrasBackground.push(new Palavra(random(textosBg)));
   }
 }
 
-function mudarEstado(novoEstado) {
-  estado = novoEstado;
-  selecionado = 0;
+function desenharBackgroundAnimado() {
+  for (let p of palavrasBackground) {
+    p.atualizar();
+    p.mostrar();
+  }
+}
+
+function keyPressed() {
+  if (estado === "INICIO") {
+    if (keyCode === DOWN_ARROW) selecionado = (selecionado + 1) % botoes.length;
+    else if (keyCode === UP_ARROW)
+      selecionado = (selecionado - 1 + botoes.length) % botoes.length;
+    else if (keyCode === ENTER) mudarEstado(botoes[selecionado].texto);
+  } else if (estado === "JOGAR") {
+    if (keyCode === UP_ARROW)
+      dificuldadeSelecionada = (dificuldadeSelecionada - 1 + 3) % 3;
+    if (keyCode === DOWN_ARROW)
+      dificuldadeSelecionada = (dificuldadeSelecionada + 1) % 3;
+    if (keyCode === ENTER) mudarEstado("GAMEPLAY");
+    if (keyCode === ESCAPE) mudarEstado("INICIO");
+  } else {
+    if (keyCode === ESCAPE) mudarEstado("INICIO");
+  }
 }
 
 // ==============================
