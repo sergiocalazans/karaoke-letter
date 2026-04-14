@@ -5,7 +5,7 @@ function telaCreditos() {
   noStroke();
   textSize(28);
   text("CRÉDITOS", width / 2, 100);
-  
+
   textSize(12);
   text("github.com/sergiocalazans/guitar-letter", width / 2, 150);
 
