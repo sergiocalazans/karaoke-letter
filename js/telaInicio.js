@@ -5,7 +5,7 @@ function telaInicial() {
   fill(255);
   noStroke();
   textSize(36);
-  text("GUITAR LETTER", width / 2, 150);
+  text("KARAOKE LETTER", width / 2, 150);
 
   for (let i = 0; i < botoes.length; i++) {
     botoes[i].desenhar(i === selecionado);

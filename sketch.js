@@ -5,10 +5,19 @@ let fontePixel;
 let dadosMusicas;
 let palavrasBackground = [];
 let textosBg = ["HTML5", "CSS", "JAVASCRIPT", "ARRAY", "CLASS", "WEB", "GAMES"];
+let imagensCapas = [];
 
 function preload() {
-  fontePixel = loadFont("assets/fonts/PressStart2P-Regular.ttf");
-  dadosMusicas = loadJSON("data/musicas.json");
+  fontePixel = loadFont("assets/fonts/PressStart2P-Regular.ttf"); //
+
+  // Use uma função de callback (o segundo parâmetro)
+  dadosMusicas = loadJSON("data/musicas.json", function (dados) {
+    // Esse código só roda DEPOIS que o JSON carregar com sucesso
+    for (let i = 0; i < dados.musicas.length; i++) {
+      imagensCapas[i] = loadImage(`assets/img/albuns/${dados.musicas[i].capa}`);
+    }
+    console.log("Imagens carregadas com sucesso!");
+  });
 }
 
 function setup() {
