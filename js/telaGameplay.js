@@ -1,5 +1,5 @@
 let score = 0;
-let combo = 1;
+let combo = 0;
 
 function telaGameplay() {
   background(0);
@@ -12,14 +12,16 @@ function telaGameplay() {
   textAlign(LEFT);
   fill(0);
   textSize(16);
-  text("Score: " + score, 70, 70); // [cite: 22]
-  text("Combo: " + combo + "x", 70, 100); // [cite: 25]
+  text("Score: " + score, 70, 70);
 
-  // --- LADO DIREITO: Info da Música ---
   textAlign(RIGHT);
-  text(musicaAtual.titulo, width - 70, 70); // [cite: 23]
-  textSize(12);
-  text(musicaAtual.artista, width - 70, 95); // [cite: 24]
+  text("Combo: " + combo + "x", width - 70, 70);
+
+  textAlign(CENTER);
+  fill(0);
+  textSize(18);
+  text(musicaAtual.titulo, width / 2, height / 2 - 250);
+  text(musicaAtual.artista, width / 2, height / 2 - 220);
 
   // --- CENTRO: Visualização da Capa ---
   // 1. Desenha a moldura interna
@@ -44,8 +46,8 @@ function telaGameplay() {
   noStroke();
   fill(255);
   textSize(38);
-  text("LETRA", width / 2, height - 130); // [cite: 26]
+  text("LETRA", width / 2, height - 130);
 
   textSize(16);
-  text("PROXIMA: LETRA", width / 2, height - 90); // [cite: 27]
+  text("PROXIMA: LETRA", width / 2, height - 90);
 }
