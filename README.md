@@ -34,7 +34,7 @@ O projeto está organizado de forma modular para facilitar a manutenção:
 
 ## Desenvolvimento
 
-**Desenvolvido como projeto de Trabalho de Graduação da diciplina 'Web Development: HTML5 Canvas & Games' do 3° Período do curso de Bacharelado em Sistemas da Informação da Pontifícia Universidade Católica do Paraná (PUCPR).**
+**Desenvolvido como Trabalho de Graduação da disciplina 'Web Development: HTML5 Canvas & Games' do 3° Período do curso de Bacharelado em Sistemas da Informação da Pontifícia Universidade Católica do Paraná (PUCPR).**
 
 ## Integrantes
 
