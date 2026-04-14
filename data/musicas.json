@@ -4,19 +4,25 @@
       "nivel": "FACIL",
       "titulo": "Time",
       "artista": "Pink Floyd",
-      "capa": "The-dark-side-of-the-moon.jpg"
+      "capa": "The-dark-side-of-the-moon.jpg",
+      "musica": "time.mp3",
+      "cronogramaLetra": []
     },
     {
       "nivel": "MEDIO",
       "titulo": "Comfortably Numb",
       "artista": "Pink Floyd",
-      "capa": "comfortably-numb.jpg"
+      "capa": "comfortably-numb.jpg",
+      "musica": "comfortably-numb.mp3",
+      "cronogramaLetra": []
     },
     {
       "nivel": "DIFICIL",
       "titulo": "Money",
       "artista": "Pink Floyd",
-      "capa": "The-dark-side-of-the-moon.jpg"
+      "capa": "The-dark-side-of-the-moon.jpg",
+      "musica": "money.mp3",
+      "cronogramaLetra": []
     }
   ]
 }
