@@ -8,7 +8,6 @@ function telaGameplay() {
   let musicaAtual = dadosMusicas.musicas[dificuldadeSelecionada];
   let capaAtual = imagensCapas[dificuldadeSelecionada];
 
-  // --- LADO ESQUERDO: Pontuação ---
   textAlign(LEFT);
   fill(0);
   textSize(16);
