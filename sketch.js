@@ -7,12 +7,14 @@ let palavrasBackground = [];
 let textosBg = ["HTML5", "CSS", "JAVASCRIPT", "ARRAY", "CLASS", "WEB", "GAMES"];
 let imagensCapas = [];
 
-function preload() {
-  fontePixel = loadFont("assets/fonts/PressStart2P-Regular.ttf");
+async function preload() {
+  fontePixel = await loadFont("assets/fonts/PressStart2P-Regular.ttf");
 
-  dadosMusicas = loadJSON("data/musicas.json", (dados) => {
+  dadosMusicas = await loadJSON("data/musicas.json", async (dados) => {
     for (let i = 0; i < dados.musicas.length; i++) {
-      imagensCapas[i] = loadImage(`assets/img/albuns/${dados.musicas[i].capa}`);
+      imagensCapas[i] = await loadImage(
+        `assets/img/albuns/${dados.musicas[i].capa}`,
+      );
     }
   });
 }
@@ -22,7 +24,6 @@ function setup() {
   textAlign(CENTER, CENTER);
   rectMode(CENTER);
   textFont(fontePixel);
-
   criarMenu();
   criarBackground();
 }
